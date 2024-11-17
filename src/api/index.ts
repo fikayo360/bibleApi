@@ -1,8 +1,8 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
-import sequelizee from "./config/db/orm/sequelizeOrm";
-import authRoute from '../src/api/entities/auth/authRoute'
-import { User,Quiz,Chapters,BriefSum } from "./config/db/schema";
+import sequelizee from "../config/db/orm/sequelizeOrm";
+import authRoute from '../api/entities/auth/authRoute'
+import { User,Quiz,Chapters,BriefSum } from "../config/db/schema";
 dotenv.config();
 
 sequelizee

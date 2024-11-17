@@ -5,9 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
-const sequelizeOrm_1 = __importDefault(require("./config/db/orm/sequelizeOrm"));
-const authRoute_1 = __importDefault(require("../src/api/entities/auth/authRoute"));
-const schema_1 = require("./config/db/schema");
+const sequelizeOrm_1 = __importDefault(require("../config/db/orm/sequelizeOrm"));
+const authRoute_1 = __importDefault(require("../api/entities/auth/authRoute"));
+const schema_1 = require("../config/db/schema");
 dotenv_1.default.config();
 sequelizeOrm_1.default
     .authenticate()
