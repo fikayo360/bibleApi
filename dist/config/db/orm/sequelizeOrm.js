@@ -9,6 +9,6 @@ const sequelizee = new sequelize_1.Sequelize('postgresql://fikayo:Mdz7Q3yjzYhvDI
             require: true,
         },
     },
-    logging: false,
+    logging: console.log,
 });
 exports.default = sequelizee;
