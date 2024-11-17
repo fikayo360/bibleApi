@@ -20,6 +20,7 @@ sequelizeOrm_1.default
 });
 const app = (0, express_1.default)();
 const port = process.env.PORT || 3000;
+app.use(express_1.default.json());
 app.get('/ping', (req, res) => {
     res.status(200).json('pong');
 });
