@@ -8,6 +8,7 @@ import authServices from "./authServices";
 const auth = authServices
 class authController{
     signUp = tryCatch(async(req:Request,res:Response) => {
+        console.log('hi');
         const userId = uuidv4()
         const validationResult = signUpSchema.validate(req.body)
 

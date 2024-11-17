@@ -32,6 +32,7 @@ const auth = authServices_1.default;
 class authController {
     constructor() {
         this.signUp = (0, tryCatch_1.default)((req, res) => __awaiter(this, void 0, void 0, function* () {
+            console.log('hi');
             const userId = (0, uuid_1.v4)();
             const validationResult = index_1.signUpSchema.validate(req.body);
             if (validationResult.error) {
