@@ -13,7 +13,7 @@ class authController{
         const validationResult = signUpSchema.validate(req.body)
 
         if (validationResult.error) {
-            throw new Error(validationResult.error.details[0].message)
+            throw new BadRequestError(validationResult.error.details[0].message)
         }
 
         const {email,username,password} = validationResult.value;
@@ -33,7 +33,7 @@ class authController{
         const validationResult = signUpSchema.validate(req.body)
 
         if (validationResult.error) {
-            throw new Error(validationResult.error.details[0].message)
+            throw new BadRequestError(validationResult.error.details[0].message)
         }
 
         const {username,password} = validationResult.value;

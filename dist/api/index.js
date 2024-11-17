@@ -8,6 +8,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const sequelizeOrm_1 = __importDefault(require("../config/db/orm/sequelizeOrm"));
 const authRoute_1 = __importDefault(require("../api/entities/auth/authRoute"));
 const schema_1 = require("../config/db/schema");
+const errorHandler_1 = __importDefault(require("./middlewares/errorHandler"));
 dotenv_1.default.config();
 sequelizeOrm_1.default
     .authenticate()
@@ -21,10 +22,11 @@ sequelizeOrm_1.default
 const app = (0, express_1.default)();
 const port = process.env.PORT || 3000;
 app.use(express_1.default.json());
+app.use('/api/v1/auth', authRoute_1.default);
+app.use(errorHandler_1.default);
 app.get('/ping', (req, res) => {
     res.status(200).json('pong');
 });
-app.use('/api/v1/auth', authRoute_1.default);
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });

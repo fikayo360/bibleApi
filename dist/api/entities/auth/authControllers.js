@@ -36,7 +36,7 @@ class authController {
             const userId = (0, uuid_1.v4)();
             const validationResult = index_1.signUpSchema.validate(req.body);
             if (validationResult.error) {
-                throw new Error(validationResult.error.details[0].message);
+                throw new index_2.BadRequestError(validationResult.error.details[0].message);
             }
             const { email, username, password } = validationResult.value;
             const isExisting = yield auth.userExists(email, username);
@@ -52,7 +52,7 @@ class authController {
         this.login = (0, tryCatch_1.default)((req, res) => __awaiter(this, void 0, void 0, function* () {
             const validationResult = index_1.signUpSchema.validate(req.body);
             if (validationResult.error) {
-                throw new Error(validationResult.error.details[0].message);
+                throw new index_2.BadRequestError(validationResult.error.details[0].message);
             }
             const { username, password } = validationResult.value;
             const foundUser = yield auth.findUsername(username);

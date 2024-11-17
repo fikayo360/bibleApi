@@ -15,7 +15,7 @@ const User = sequelize.define('User', {
     chapter_number: { type: DataTypes.INTEGER, allowNull: false },
     completed: { type: DataTypes.BOOLEAN, defaultValue: false }
   });
-  
+  https://bibleapi-2.onrender.com
   // Summary Model
   const Summary = sequelize.define('Summary', {
     observations: { type: DataTypes.TEXT },
