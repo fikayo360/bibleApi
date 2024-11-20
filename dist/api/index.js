@@ -22,8 +22,8 @@ sequelizeOrm_1.default
 const app = (0, express_1.default)();
 const port = process.env.PORT || 3000;
 app.use(express_1.default.json());
-app.use('/api/v1/auth', authRoute_1.default);
 app.use(errorHandler_1.default);
+app.use('/api/v1/auth', authRoute_1.default);
 app.get('/ping', (req, res) => {
     res.status(200).json('pong');
 });

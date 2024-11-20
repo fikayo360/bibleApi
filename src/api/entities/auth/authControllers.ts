@@ -6,6 +6,7 @@ import { BadRequestError,ForbidenError,InternalServerError,unAuthorizedError } f
 import authServices from "./authServices";
 
 const auth = authServices
+
 class authController{
     signUp = tryCatch(async(req:Request,res:Response) => {
         console.log('hi');

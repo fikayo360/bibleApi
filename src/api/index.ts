@@ -20,8 +20,9 @@ const app: Express = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use('/api/v1/auth',authRoute)
 app.use(ErrorHandler)
+app.use('/api/v1/auth',authRoute)
+
 
 app.get('/ping',(req:Request,res:Response) =>{ 
   res.status(200).json('pong')
