@@ -19,10 +19,11 @@ class authController{
 
         const {email,username,password} = validationResult.value;
 
-        const isExisting = await auth.userExists(email,username)
+        const isExisting = await auth.findEmail(email)
         if(isExisting){
             throw new BadRequestError('User already exists')
         } 
+        
         const hashPassword = auth.hashPassword(password,10)
         const user = {id:userId,email,username,password:hashPassword}
         const tokens = await auth.createUser(user)
@@ -31,7 +32,7 @@ class authController{
     })
 
     login = tryCatch(async(req:Request,res:Response) => {
-        const validationResult = signUpSchema.validate(req.body)
+        const validationResult = loginSchema.validate(req.body)
 
         if (validationResult.error) {
             throw new BadRequestError(validationResult.error.details[0].message)

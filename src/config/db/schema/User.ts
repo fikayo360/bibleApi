@@ -2,8 +2,8 @@ import { DataTypes } from "sequelize"
 import sequelizee from "../../../config/db/orm/sequelizeOrm";
 
 const User = sequelizee.define('User', {
-    username: { type: DataTypes.STRING, allowNull: false, unique: true },
-    email: { type: DataTypes.STRING, allowNull: false, unique: true, validate: { isEmail: true } },
+    username: { type: DataTypes.STRING, allowNull: false },
+    email: { type: DataTypes.STRING, allowNull: false, validate: { isEmail: true } },
     password: { type: DataTypes.STRING, allowNull: false } 
   });
 

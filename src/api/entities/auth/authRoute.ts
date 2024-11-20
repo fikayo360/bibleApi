@@ -1,5 +1,6 @@
 import express, { Router } from 'express';
 import authControllers from './authControllers';
+import ErrorHandler from '../../middlewares/errorHandler';
 const router:Router = express.Router()
 const user = authControllers
 
