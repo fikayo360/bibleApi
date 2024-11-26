@@ -28,7 +28,7 @@ class authController{
         const user = {id:userId,email,username,password:hashPassword}
         const tokens = await auth.createUser(user)
         let accesstoken = tokens
-        return res.status(201).json({msg:'user created successfully',accesstoken})
+        return res.status(201).json({msg:'user created successfully',accesstoken,user})
     })
 
     login = tryCatch(async(req:Request,res:Response) => {
@@ -53,7 +53,7 @@ class authController{
         const { password:foundUserPassword, ...others } = foundUser;
         const userRest = others
         const token = auth.getTokens(userRest.username,userRest.email)
-        return res.status(200).json(token)
+        return res.status(200).json({token,userRest})
     })
 }
 

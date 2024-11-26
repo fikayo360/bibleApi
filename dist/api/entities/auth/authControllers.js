@@ -47,7 +47,7 @@ class authController {
             const user = { id: userId, email, username, password: hashPassword };
             const tokens = yield auth.createUser(user);
             let accesstoken = tokens;
-            return res.status(201).json({ msg: 'user created successfully', accesstoken });
+            return res.status(201).json({ msg: 'user created successfully', accesstoken, user });
         }));
         this.login = (0, tryCatch_1.default)((req, res) => __awaiter(this, void 0, void 0, function* () {
             const validationResult = index_1.loginSchema.validate(req.body);
@@ -66,7 +66,7 @@ class authController {
             const { password: foundUserPassword } = foundUser, others = __rest(foundUser, ["password"]);
             const userRest = others;
             const token = auth.getTokens(userRest.username, userRest.email);
-            return res.status(200).json(token);
+            return res.status(200).json({ token, userRest });
         }));
     }
 }
