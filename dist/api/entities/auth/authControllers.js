@@ -39,7 +39,7 @@ class authController {
                 throw new index_2.BadRequestError(validationResult.error.details[0].message);
             }
             const { email, username, password } = validationResult.value;
-            const isExisting = yield auth.userExists(email, username);
+            const isExisting = yield auth.findEmail(email);
             if (isExisting) {
                 throw new index_2.BadRequestError('User already exists');
             }
@@ -50,7 +50,7 @@ class authController {
             return res.status(201).json({ msg: 'user created successfully', accesstoken });
         }));
         this.login = (0, tryCatch_1.default)((req, res) => __awaiter(this, void 0, void 0, function* () {
-            const validationResult = index_1.signUpSchema.validate(req.body);
+            const validationResult = index_1.loginSchema.validate(req.body);
             if (validationResult.error) {
                 throw new index_2.BadRequestError(validationResult.error.details[0].message);
             }
